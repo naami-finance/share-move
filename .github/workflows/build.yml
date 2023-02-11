@@ -9,4 +9,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: build move
-        run: docker run -e MNEMONIC="${{ secrets.DEPLOYER_MENMONIC_PHRASE }}" -e ALGORITHM=${DEPLOYER_ALGORITHM} -e ADDRESS=${variables.DEPLOYER_ADDRESS} -v ${GITHUB_WORKSPACE}:/sui --rm naamitest/sui-publish:latest
+        run: docker run -e MNEMONIC="${{ secrets.DEPLOYER_MENMONIC_PHRASE }}" -e ALGORITHM=${{ vars.DEPLOYER_ALGORITHM }} -e ADDRESS=${{ vars.DEPLOYER_ADDRESS }} -v ${GITHUB_WORKSPACE}:/sui --rm naamitest/sui-publish:latest
