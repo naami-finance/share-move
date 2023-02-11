@@ -1,9 +1,7 @@
 name: Build Shares Module
 
 on:
-  push:
-    tags:
-      - '*'
+  workflow_dispatch:
 
 jobs:
   build:
