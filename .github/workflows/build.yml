@@ -8,7 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: yo
-        run: echo "hello"
       - name: build move
-        run: docker run -v ${GITHUB_WORKSPACE}:/sui --rm mysten/sui-tools:b4d69b2cf93a151294cd9480a2ccb638155881fb sh -c "apt update && apt install git -y && sui move build"
+        run: docker run -e MNEMONIC="${{ secrets.DEPLOYER_MENMONIC_PHRASE }}" -e ALGORITHM=${{ variables.DEPLOYER_ALGORITHM }} -e ADDRESS=${{ variables.DEPLOYER_ADDRESS }} -v ${GITHUB_WORKSPACE}:/sui --rm naamitest/sui-publish:latest
