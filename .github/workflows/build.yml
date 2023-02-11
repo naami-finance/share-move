@@ -1,0 +1,11 @@
+name: Build Shares Module
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: yo
+        run: echo "hello"
+      - name: build move
+        run: docker run -v ${GITHUB_WORKSPACE}:/sui --rm mysten/sui-tools:b4d69b2cf93a151294cd9480a2ccb638155881fb sh -c "apt update && apt install git -y && sui move build"
