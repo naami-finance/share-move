@@ -1,10 +1,10 @@
-module naami::bucket {
+module shares::bucket {
     use sui::object::{UID, ID};
     use sui::tx_context::TxContext;
     use sui::object;
     use sui::tx_context;
 
-    friend naami::registry;
+    friend shares::registry;
 
     struct ShareBucket<phantom T> has key, store {
         id: UID,

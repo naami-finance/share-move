@@ -1,13 +1,13 @@
-module naami::registry {
+module shares::registry {
     use sui::transfer;
     use sui::tx_context::{Self, TxContext};
 
     use sui::object::{UID, ID};
     use sui::object;
-    use naami::bucket;
+    use shares::bucket;
     use sui::types;
-    use naami::metadata;
-    use naami::bucket::ShareBucket;
+    use shares::metadata;
+    use shares::bucket::ShareBucket;
     use std::type_name;
     use std::ascii::{Self};
     use sui::event;

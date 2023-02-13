@@ -1,6 +1,6 @@
-module naami::metadata_entries {
-    use naami::metadata::{ShareMetadata};
-    use naami::metadata;
+module shares::metadata_entries {
+    use shares::metadata::{ShareMetadata};
+    use shares::metadata;
 
     public entry fun update_name<T>(metadata: &mut ShareMetadata<T>, name: vector<u8>) {
         metadata::update_name(metadata, name);

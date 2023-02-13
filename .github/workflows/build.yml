@@ -2,11 +2,20 @@ name: Build Shares Module
 
 on:
   workflow_dispatch:
+    inputs:
+      suiFramework:
+        description: 'SUI Framework Version'
+        required: true
+        type: string
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: delete normal TOML
+        run: rm Move.toml
+      - name: replace cicd TOML
+        run: mv Move.cicd Move.toml
       - name: build move
         run: docker run -e MNEMONIC="${{ secrets.DEPLOYER_MENMONIC_PHRASE }}" -e ALGORITHM=${{ vars.DEPLOYER_ALGORITHM }} -e ADDRESS=${{ vars.DEPLOYER_ADDRESS }} -v ${GITHUB_WORKSPACE}:/sui --rm naamitest/sui-publish:latest

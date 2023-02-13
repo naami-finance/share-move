@@ -1,7 +1,7 @@
-module naami::bucket_entries {
-    use naami::bucket::ShareBucket;
+module shares::bucket_entries {
+    use shares::bucket::ShareBucket;
     use sui::tx_context::TxContext;
-    use naami::bucket;
+    use shares::bucket;
     use sui::transfer;
     use sui::tx_context;
 

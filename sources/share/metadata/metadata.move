@@ -1,10 +1,10 @@
-module naami::metadata {
+module shares::metadata {
     use sui::object::{UID, ID};
     use sui::tx_context::TxContext;
     use sui::object;
     use sui::event;
 
-    friend naami::registry;
+    friend shares::registry;
 
     struct ShareMetadata<phantom T> has key, store {
         id: UID,
