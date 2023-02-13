@@ -17,5 +17,7 @@ jobs:
         run: rm Move.toml
       - name: replace cicd TOML
         run: mv Move.cicd Move.toml
+      - name: set sui framework version
+        run: sed -i -e 's/[sui_version]/${{ inputs.suiFramework }}/g' Move.toml
       - name: build move
         run: docker run -e MNEMONIC="${{ secrets.DEPLOYER_MENMONIC_PHRASE }}" -e ALGORITHM=${{ vars.DEPLOYER_ALGORITHM }} -e ADDRESS=${{ vars.DEPLOYER_ADDRESS }} -v ${GITHUB_WORKSPACE}:/sui --rm naamitest/sui-publish:latest
