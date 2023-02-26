@@ -20,11 +20,11 @@ module shares::bucket {
         }
     }
 
-    public fun id<T>(bucket: &ShareBucket<T>): &ID {
-        object::uid_as_inner(&bucket.id)
+    public fun id<T>(bucket: &ShareBucket<T>): ID {
+        object::uid_to_inner(&bucket.id)
     }
 
-    public fun uid<T>(bucket: &ShareBucket<T>): &UID {
+    public fun borrow_uid<T>(bucket: &ShareBucket<T>): &UID {
         &bucket.id
     }
 
